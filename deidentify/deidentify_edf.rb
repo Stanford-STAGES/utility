@@ -35,15 +35,16 @@ Edfize.edfs do |edf|
 
   new_recording_id = "";
 
-  new_patient_id = "Somnomedics2"
-  new_patient_id = "Somnomedics1"
-  new_patient_id = "Sandman1"
+  new_patient_id = ""
   original_start_date = Date.strptime(edf.start_date_of_recording,"%d.%m.%y");
   randomized_start_date = original_start_date + rand(11)-5;
-  
+
+# Jiggle date by +/- 5 days
   new_start_date = randomized_start_date.strftime("%d.%m.%y");
-  new_start_date = "01.01.16"
-  
+
+# Set date to start of a certain year
+# new_start_date = "01.01.16"
+
   if edf.start_date_of_recording == INVALID_DATE
     initial_date = edf.start_date_of_recording
 
@@ -54,7 +55,7 @@ Edfize.edfs do |edf|
   edf.update(start_date_of_recording: new_start_date)
   edf.update(local_patient_identification: new_patient_id)
   edf.update(local_recording_identification: new_recording_id)
-  
+
   puts "   OK".colorize(:green) + "       #{original_start_date.strftime("%d.%m.%y")}  --> #{new_start_date} for #{edf.filename}"
 
   puts("\t\tlocal_patient_identification:\t#{edf.local_patient_identification}")
