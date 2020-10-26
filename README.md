@@ -1,11 +1,11 @@
 Utility programs, scripts, and resources for use by Stanford Center for Sleep Sciences and Behavioral Research and its collaborators.
 
  
-# edf_deidentify
+# edf_deidentify/
 
 This folder contains a Ruby script from the NSRR which may be used to deidentify edf files.
 
-# edf_transcode
+# edf_transcode/
 
 This folder contains MATLAB code that is helpful for curating and normalizing EDF files to include: 
 
