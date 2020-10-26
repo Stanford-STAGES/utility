@@ -4,3 +4,4 @@ edf_transcode/scripts.txt
 edf_transcode/export_summary.txt
 *.iml
 *.xml
+*.pyc

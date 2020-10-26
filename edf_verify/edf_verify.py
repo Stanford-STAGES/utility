@@ -47,10 +47,11 @@ def verify_edf_files(edf_path_to_verify: Path):
                 print('FAIL')
 
         print('')
-        print(f'{len(fail_files)} files failed.')
+        print(f'{len(fail_files)} files failed:')
         if len(fail_files) > 0:
             for idx, fail_file in enumerate(fail_files):
-                print('\t' + fail_file + '\t' + fail_reasons[idx])
+                print(fail_file + '\t' + fail_reasons[idx])
+            print('')
 
 
 def main_menu():
