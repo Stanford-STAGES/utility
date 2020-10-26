@@ -1,6 +1,20 @@
 Utility programs, scripts, and resources for use by Stanford Center for Sleep Sciences and Behavioral Research and its collaborators.
 
  
+# edf_verify/
+
+This folder contains a Python script to verify if EDF files will work with pyedflib.EdfReader.
+
+From a command prompt
+
+* To specify which path to check (e.g. '/path/to/check/'), and only run once:
+
+  `python3.6 -m edf_verify ~/path/to/check`
+
+* Simple prompt for which path to check.  (Enter 'x' to quit.)
+
+  `python3.6 -m edf_verify`
+
 # edf_deidentify/
 
 This folder contains a Ruby script from the NSRR which may be used to deidentify edf files.
