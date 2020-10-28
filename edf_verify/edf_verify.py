@@ -4,6 +4,13 @@ from pathlib import Path
 import traceback
 
 
+# Unused, but from Geoffrey Irving: https://stackoverflow.com/questions/8151300/ignore-case-in-glob-on-linux
+def insensitive_pattern(pattern):
+    def either(c):
+        return '[%s%s]' % (c.lower(), c.upper()) if c.isalpha() else c
+    return ''.join(map(either, pattern))
+
+
 def verify_edf_files(edf_path_to_verify: Path):
     if not isinstance(edf_path_to_verify, Path):
         edf_path_to_verify = Path(edf_path_to_verify)
@@ -16,7 +23,7 @@ def verify_edf_files(edf_path_to_verify: Path):
         edf_files_not_in_table = []
         edf_files_in_table = []
         # Get all the files in the path
-        edf_files = edf_path_to_verify.glob('*.edf')
+        edf_files = edf_path_to_verify.glob('*.[eE][dD][fF]')
         edf_file_count = len([name for name in edf_files if name.is_file()])
         edf_files = edf_path_to_verify.glob('*.edf')
         num_files = edf_file_count
