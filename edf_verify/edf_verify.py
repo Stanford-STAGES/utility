@@ -25,7 +25,7 @@ def verify_edf_files(edf_path_to_verify: Path):
         # Get all the files in the path
         edf_files = edf_path_to_verify.glob('*.[eE][dD][fF]')
         edf_file_count = len([name for name in edf_files if name.is_file()])
-        edf_files = edf_path_to_verify.glob('*.edf')
+        edf_files = edf_path_to_verify.glob('*.[eE][dD][fF]')
         num_files = edf_file_count
         fail_files = []
         fail_reasons = []
