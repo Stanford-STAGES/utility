@@ -67,10 +67,11 @@ def remove_dates_from_evt_files(pathname=None, filename=None):
                 if __DRY_RUN__:
                     for line in output:
                         print(line)
-                    else:
-                        with open(filename, 'w') as fid:
-                            fid.writelines(output)
-                        # write the csv file back over
+                else:
+                    # write the csv file over the old one
+                    with open(filename, 'w') as fid:
+                        fid.writelines(output)
+
 
 
 def print_usage(name='remove_dates_from_evt_files'):
