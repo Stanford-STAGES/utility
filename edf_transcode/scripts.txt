@@ -1,0 +1,384 @@
+psgPath = '/var/psg/'
+[channelNames, channelNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
+
+>> [channelNames, channelNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
+16              
+20              
+21              
+24              
+25              
+26              
+28              
+29              
+30              
+31              
+32              
+A1              
+A2              
+ABD             
+ABDM            
+ABDOMEN         
+AIRFLOW         
+Abd             
+AbdDC           
+Abdomen         
+Airflow         
+Arms-L          
+Arms-R          
+BPOS            
+BPos            
+Battery         
+Body            
+BreathRate      
+C-LEAK          
+C3              
+C3-M2           
+C3-P3           
+C3M2            
+C4              
+C4-M1           
+C4-P4           
+C4M1            
+CFLO            
+CFLOW           
+CHEST           
+CHIN            
+CHIN1           
+CHIN2           
+CHIN3           
+CNEP pressure   
+CO2             
+CO2 EndTidal    
+CO2 EndTidal2   
+CPAP Flow       
+CPAP Leak       
+CPAP Pressure   
+CPAP leak       
+CPAP raw flow   
+Cannula         
+Chest           
+ChestDC         
+Chin            
+Chin 1          
+Chin 2          
+Chin 3          
+Chin2           
+Cz              
+DC Nasal Canual 
+DC05            
+DC06            
+DC07            
+DC08            
+DC1             
+DC2             
+DC3             
+DC6             
+DIA             
+E1              
+E1 (LEOG)       
+E1M2            
+E2              
+E2 (REOG)       
+E2M2            
+ECG             
+ECG 1           
+ECG 2           
+ECG I           
+ECG I2          
+ECG II          
+ECG II2         
+ECG IIHF        
+ECG1            
+ECG2            
+EDF Annotations 
+EEG             
+EEG A1-A2       
+EEG A1-A22      
+EEG C3-A1       
+EEG C3-A2       
+EEG C3-A22      
+EEG C4-A1       
+EEG C4-A12      
+EEG C4-A2       
+EEG F3-A1       
+EEG F3-A2       
+EEG F3-A22      
+EEG F4-A1       
+EEG F4-A12      
+EEG F4-A2       
+EEG F7-A2       
+EEG F8-A1       
+EEG Fp1-A2      
+EEG Fp1-A22     
+EEG Fp2-A1      
+EEG Fp2-A12     
+EEG O1-A1       
+EEG O1-A2       
+EEG O1-A22      
+EEG O2-A1       
+EEG O2-A12      
+EEG O2-A2       
+EEG P3-A2       
+EEG P4-A1       
+EEG T3-A2       
+EEG T4-A1       
+EEG T5-A2       
+EEG T6-A1       
+EKG             
+EKG #1          
+EKG #2          
+EKG1            
+EKG2            
+EMG             
+EMG #1          
+EMG #2          
+EMG #3          
+EMG Aux1        
+EMG Aux12       
+EMG Aux2        
+EMG Chin        
+EMG Chin2       
+EMG1            
+EMG2            
+EMG3            
+EOG LOC-A2      
+EOG LOC-A22     
+EOG ROC-A1      
+EOG ROC-A12     
+EOG ROC-A2      
+EOG ROC-A22     
+EPAP            
+ETC2            
+ETCO2           
+ETCO2 Digital   
+ETCO2 TREND     
+ETCO2 Trend     
+ETCO2 Wave      
+Effort ABD      
+Effort THO      
+EtCO2           
+ExOb            
+F1M2            
+F2M1            
+F3              
+F3-C3           
+F3-M2           
+F3M2            
+F4              
+F4-C4           
+F4-M1           
+F4M1            
+F7              
+F7-T3           
+F8              
+F8-T4           
+FLOW            
+FP1             
+FP1-F3          
+FP1-F7          
+FP2             
+FP2-F4          
+FP2-F8          
+Flow            
+Flow Aux4       
+Flow Patient    
+Flow Patient2   
+Flow Patient3   
+Foot-L          
+Foot-R          
+Fp1             
+Fp2             
+Fpz             
+Fz              
+Graphical Aux2  
+HR              
+Heartrate       
+IC1-IC2         
+IPAP            
+Impedan         
+L Arm           
+L Arm 1         
+L Arm 2         
+L Leg           
+L Leg 1         
+L Leg 2         
+L-Arm1          
+L-Arm2          
+L-EOG           
+L-LEG 1         
+L-LEG 2         
+L-LEG1          
+L-LEG2          
+L-Leg1          
+L-Leg2          
+LA1-LA2         
+LAT             
+LAT1-LAT2       
+LEAK            
+LLEG            
+LLeg3           
+LLeg4           
+LOC             
+Leak            
+Leak Total      
+Left Masseter 1 
+Left Masseter 2 
+Leg 1           
+Leg 12          
+Leg 2           
+Leg 22          
+LegsL-Leg1      
+Light           
+M1              
+M2              
+MV              
+Massater 1      
+Massater 2      
+Masseter 1      
+Masseter 2      
+Min Vent        
+Move.           
+Mvmt            
+N Pres          
+N.Press         
+NASAL PRESSURE  
+NCPT            
+NasOr           
+NasOr2          
+Nasal           
+Nasal Pressure  
+Nasal Therm     
+NasalDC         
+NasalSn         
+Nonin sat       
+O1              
+O1-M2           
+O1M2            
+O2              
+O2-M1           
+O2M1            
+Oral-CO2        
+Other           
+Oxy Flow        
+Oz              
+P-Snore         
+P3              
+P3-O1           
+P4              
+P4-O2           
+PAP Flow        
+PAP Leak        
+PAP Pres        
+PAP Pt Flo      
+PAP TV          
+POS             
+PPG             
+PR              
+PTAF            
+PULSE           
+Patient Event   
+Pes-L1          
+Pes-L2          
+Pes-L3          
+Pes-L4          
+Photic Event    
+Plesmo          
+Pleth           
+Plth            
+Pos             
+Pos.            
+Press           
+Press Patient   
+PressCheck      
+Pressure        
+Pulse           
+Pulse Amp       
+Pulse Rate      
+PulseRate       
+Pz              
+R Arm           
+R Arm 1         
+R Arm 2         
+R Leg           
+R Leg 1         
+R Leg 2         
+R-Arm1          
+R-Arm2          
+R-EOG           
+R-LEG 1         
+R-LEG 2         
+R-LEG1          
+R-LEG2          
+R-Leg1          
+R-Leg2          
+RAT             
+RAT1-RAT2       
+RIC             
+RLEG            
+RLeg5           
+RLeg6           
+ROC             
+RR              
+ResM Flow       
+ResM Press      
+ResMed Flow     
+ResMed Pressure 
+Resp Rate       
+Rib Cage        
+Right Arm 2     
+Right Masseter 1
+Right Masseter 2
+Right arm       
+Right-Masseter1 
+SAO2            
+SNOR            
+SNORE           
+SPO2            
+SUB-R - V5      
+SUBL-SUBR       
+SUBR-SUBL       
+SUM             
+Sa02            
+SaO2            
+Snore           
+Snore2          
+SpO2            
+Sum             
+T-Volume        
+T3              
+T3-T5           
+T3M2            
+T4              
+T4-T6           
+T4M1            
+T5              
+T5-O1           
+T6              
+T6-O2           
+TCCO2 Digital   
+THOR            
+TV              
+TcCO2           
+TcPPG           
+TcSpO2          
+TcpCO2          
+Technical       
+Therm           
+TidVol Instant  
+TidVol Target   
+Tidal Vol       
+WAVE            
+Winx-Oral       
+Winx-Pump       
+cNEP pressure   
+x               
+xPAP CPAP       
+xPAP EPAP       
+xPAP EPAPMax    
+xPAP EPAPMin    
+xPAP IPAP       
+xPAP IPAPMax    
+xPAP IPAPMin    
+xPAP MaxPress   
+xPAP PSMax      
+xPAP PSMin   
