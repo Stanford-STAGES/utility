@@ -1,7 +1,23 @@
 psgPath = '/var/psg/'
 [channelNames, channelNamesAll, psgNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
+[channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
 
->> [channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+% CLASS_converter
+% edfAnnotations2StagesCsv -> CLASS_converter.edfAnnotations2EventsFile
+% mayo2huneo
+% 
+% CLASS_codec
+% function [evt_Struct,samplerate_out] = parseSTAGESEventFile(eventsFile, edfFile, desired_samplerate)
+% 
+%
+eventsFile = '/Volumes/Accel/STNF00016.csv';
+eventsFile = '/Volumes/Accel/OAK/psg/stages/events/STNF00016.csv';
+
+edfFile = '/Volumes/Accel/STNF00016.edf';
+desired_samplerate = 100;
+[evt_Struct,samplerate_out] = CLASS_codec.parseSTAGESEventFile(eventsFile, edfFile, desired_samplerate);
+
+
 fprintf('Label, occurrence(s)\n');
 for ch=1:numel(channelNames)
     fprintf(1, '%s, %d\n', channelNames{ch}, channelNameOccurrences(ch));
@@ -419,3 +435,4 @@ xPAP IPAPMin, 114
 xPAP MaxPress, 115
 xPAP PSMax, 115
 xPAP PSMin, 115
+
