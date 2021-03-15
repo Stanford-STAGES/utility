@@ -1110,7 +1110,11 @@ classdef CLASS_converter < handle
         %> @retval channelNamesAll is a Nx1 cell, where N is the number of
         %> .EDF files found in the psg path.  Each cell contains the channel
         %> labels listed for the n_th EDF file (n is between 1 and N).
-        function [channelNames, channelNamesAll] = getAllChannelNames(psgPath,srcType)
+        %> @retval edfNamesAll - Nx1 cell of the EDF filenames (srcType='flat') 
+        %> or pathname (srcType='tier') which match the channel names all
+        %> entry for the corresponding row/index.
+        function [channelNames, channelNamesAll, edfNamesAll, channelNameOccurrences] = getAllChannelNames(psgPath,srcType)
+                
             if(nargin<2)
                 srcType = 'flat';
                 
@@ -1122,11 +1126,11 @@ classdef CLASS_converter < handle
                     end
                 end
             end
-            
+            edfNamesAll = {};
             if(strcmpi(srcType,'flat'))
                 files = getFilenamesi(psgPath,'EDF');
                 channelNames = {};
-                
+                edfNamesAll = files;
                 channelNamesAll = cell(numel(files),1);
                 for f=1:numel(files)
                     srcFile = files{f};
@@ -1141,6 +1145,7 @@ classdef CLASS_converter < handle
                 [~,edfPathnames] = getPathnames(psgPath);
                 channelNamesAll = cell(numel(edfPathnames),1);
                 channelNames = {};
+                edfNamesAll = edfPathnames;
                 for d=1:numel(edfPathnames)
                     psgPath = edfPathnames{d};
                     srcFile = getFilenamesi(psgPath,'EDF');
@@ -1157,7 +1162,23 @@ classdef CLASS_converter < handle
             else
                 fprintf('Source type must be ''tier'' or ''flat''\n');
             end
-            
+            if nargout>3
+                channelsCount = cellfun(@numel,channelNamesAll);
+                channelsAllCount = sum(channelsCount);
+                channelNamesAllTogether = cell(channelsAllCount, 1);
+                startC = 1;
+                for c=1:numel(channelNamesAll)
+                    curChannels = channelNamesAll{c};
+                    endC = startC+numel(curChannels)-1;
+                    channelNamesAllTogether(startC:endC) = curChannels;
+                    startC = endC+1;
+                end
+                channelNameOccurrences = zeros(size(channelNames));
+                for ch=1:numel(channelNames)
+                    chName = channelNames{ch};
+                    channelNameOccurrences(ch) = sum(strcmp(chName, channelNamesAllTogether));
+                end                
+            end
             disp(char(channelNames));
         end
         

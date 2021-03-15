@@ -1,384 +1,421 @@
 psgPath = '/var/psg/'
-[channelNames, channelNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
+[channelNames, channelNamesAll, psgNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
 
->> [channelNames, channelNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
-16              
-20              
-21              
-24              
-25              
-26              
-28              
-29              
-30              
-31              
-32              
-A1              
-A2              
-ABD             
-ABDM            
-ABDOMEN         
-AIRFLOW         
-Abd             
-AbdDC           
-Abdomen         
-Airflow         
-Arms-L          
-Arms-R          
-BPOS            
-BPos            
-Battery         
-Body            
-BreathRate      
-C-LEAK          
-C3              
-C3-M2           
-C3-P3           
-C3M2            
-C4              
-C4-M1           
-C4-P4           
-C4M1            
-CFLO            
-CFLOW           
-CHEST           
-CHIN            
-CHIN1           
-CHIN2           
-CHIN3           
-CNEP pressure   
-CO2             
-CO2 EndTidal    
-CO2 EndTidal2   
-CPAP Flow       
-CPAP Leak       
-CPAP Pressure   
-CPAP leak       
-CPAP raw flow   
-Cannula         
-Chest           
-ChestDC         
-Chin            
-Chin 1          
-Chin 2          
-Chin 3          
-Chin2           
-Cz              
-DC Nasal Canual 
-DC05            
-DC06            
-DC07            
-DC08            
-DC1             
-DC2             
-DC3             
-DC6             
-DIA             
-E1              
-E1 (LEOG)       
-E1M2            
-E2              
-E2 (REOG)       
-E2M2            
-ECG             
-ECG 1           
-ECG 2           
-ECG I           
-ECG I2          
-ECG II          
-ECG II2         
-ECG IIHF        
-ECG1            
-ECG2            
-EDF Annotations 
-EEG             
-EEG A1-A2       
-EEG A1-A22      
-EEG C3-A1       
-EEG C3-A2       
-EEG C3-A22      
-EEG C4-A1       
-EEG C4-A12      
-EEG C4-A2       
-EEG F3-A1       
-EEG F3-A2       
-EEG F3-A22      
-EEG F4-A1       
-EEG F4-A12      
-EEG F4-A2       
-EEG F7-A2       
-EEG F8-A1       
-EEG Fp1-A2      
-EEG Fp1-A22     
-EEG Fp2-A1      
-EEG Fp2-A12     
-EEG O1-A1       
-EEG O1-A2       
-EEG O1-A22      
-EEG O2-A1       
-EEG O2-A12      
-EEG O2-A2       
-EEG P3-A2       
-EEG P4-A1       
-EEG T3-A2       
-EEG T4-A1       
-EEG T5-A2       
-EEG T6-A1       
-EKG             
-EKG #1          
-EKG #2          
-EKG1            
-EKG2            
-EMG             
-EMG #1          
-EMG #2          
-EMG #3          
-EMG Aux1        
-EMG Aux12       
-EMG Aux2        
-EMG Chin        
-EMG Chin2       
-EMG1            
-EMG2            
-EMG3            
-EOG LOC-A2      
-EOG LOC-A22     
-EOG ROC-A1      
-EOG ROC-A12     
-EOG ROC-A2      
-EOG ROC-A22     
-EPAP            
-ETC2            
-ETCO2           
-ETCO2 Digital   
-ETCO2 TREND     
-ETCO2 Trend     
-ETCO2 Wave      
-Effort ABD      
-Effort THO      
-EtCO2           
-ExOb            
-F1M2            
-F2M1            
-F3              
-F3-C3           
-F3-M2           
-F3M2            
-F4              
-F4-C4           
-F4-M1           
-F4M1            
-F7              
-F7-T3           
-F8              
-F8-T4           
-FLOW            
-FP1             
-FP1-F3          
-FP1-F7          
-FP2             
-FP2-F4          
-FP2-F8          
-Flow            
-Flow Aux4       
-Flow Patient    
-Flow Patient2   
-Flow Patient3   
-Foot-L          
-Foot-R          
-Fp1             
-Fp2             
-Fpz             
-Fz              
-Graphical Aux2  
-HR              
-Heartrate       
-IC1-IC2         
-IPAP            
-Impedan         
-L Arm           
-L Arm 1         
-L Arm 2         
-L Leg           
-L Leg 1         
-L Leg 2         
-L-Arm1          
-L-Arm2          
-L-EOG           
-L-LEG 1         
-L-LEG 2         
-L-LEG1          
-L-LEG2          
-L-Leg1          
-L-Leg2          
-LA1-LA2         
-LAT             
-LAT1-LAT2       
-LEAK            
-LLEG            
-LLeg3           
-LLeg4           
-LOC             
-Leak            
-Leak Total      
-Left Masseter 1 
-Left Masseter 2 
-Leg 1           
-Leg 12          
-Leg 2           
-Leg 22          
-LegsL-Leg1      
-Light           
-M1              
-M2              
-MV              
-Massater 1      
-Massater 2      
-Masseter 1      
-Masseter 2      
-Min Vent        
-Move.           
-Mvmt            
-N Pres          
-N.Press         
-NASAL PRESSURE  
-NCPT            
-NasOr           
-NasOr2          
-Nasal           
-Nasal Pressure  
-Nasal Therm     
-NasalDC         
-NasalSn         
-Nonin sat       
-O1              
-O1-M2           
-O1M2            
-O2              
-O2-M1           
-O2M1            
-Oral-CO2        
-Other           
-Oxy Flow        
-Oz              
-P-Snore         
-P3              
-P3-O1           
-P4              
-P4-O2           
-PAP Flow        
-PAP Leak        
-PAP Pres        
-PAP Pt Flo      
-PAP TV          
-POS             
-PPG             
-PR              
-PTAF            
-PULSE           
-Patient Event   
-Pes-L1          
-Pes-L2          
-Pes-L3          
-Pes-L4          
-Photic Event    
-Plesmo          
-Pleth           
-Plth            
-Pos             
-Pos.            
-Press           
-Press Patient   
-PressCheck      
-Pressure        
-Pulse           
-Pulse Amp       
-Pulse Rate      
-PulseRate       
-Pz              
-R Arm           
-R Arm 1         
-R Arm 2         
-R Leg           
-R Leg 1         
-R Leg 2         
-R-Arm1          
-R-Arm2          
-R-EOG           
-R-LEG 1         
-R-LEG 2         
-R-LEG1          
-R-LEG2          
-R-Leg1          
-R-Leg2          
-RAT             
-RAT1-RAT2       
-RIC             
-RLEG            
-RLeg5           
-RLeg6           
-ROC             
-RR              
-ResM Flow       
-ResM Press      
-ResMed Flow     
-ResMed Pressure 
-Resp Rate       
-Rib Cage        
-Right Arm 2     
-Right Masseter 1
-Right Masseter 2
-Right arm       
-Right-Masseter1 
-SAO2            
-SNOR            
-SNORE           
-SPO2            
-SUB-R - V5      
-SUBL-SUBR       
-SUBR-SUBL       
-SUM             
-Sa02            
-SaO2            
-Snore           
-Snore2          
-SpO2            
-Sum             
-T-Volume        
-T3              
-T3-T5           
-T3M2            
-T4              
-T4-T6           
-T4M1            
-T5              
-T5-O1           
-T6              
-T6-O2           
-TCCO2 Digital   
-THOR            
-TV              
-TcCO2           
-TcPPG           
-TcSpO2          
-TcpCO2          
-Technical       
-Therm           
-TidVol Instant  
-TidVol Target   
-Tidal Vol       
-WAVE            
-Winx-Oral       
-Winx-Pump       
-cNEP pressure   
-x               
-xPAP CPAP       
-xPAP EPAP       
-xPAP EPAPMax    
-xPAP EPAPMin    
-xPAP IPAP       
-xPAP IPAPMax    
-xPAP IPAPMin    
-xPAP MaxPress   
-xPAP PSMax      
-xPAP PSMin   
+>> [channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+fprintf('Label, occurrence(s)\n');
+for ch=1:numel(channelNames)
+    fprintf(1, '%s, %d\n', channelNames{ch}, channelNameOccurrences(ch));
+end
+
+
+Outputs:
+Label, occurrence(s)
+16, 21
+20, 21
+21, 21
+24, 4
+25, 4
+26, 4
+28, 4
+29, 139
+30, 4
+31, 4
+32, 69
+A1, 28
+A2, 28
+ABD, 21
+ABDM, 70
+ABDOMEN, 127
+AIRFLOW, 53
+Abd, 488
+AbdDC, 37
+Abdomen, 524
+Accu, 28
+Airflow, 284
+Arms-L, 39
+Arms-R, 39
+BPOS, 70
+BPos, 435
+Battery, 436
+Body, 687
+BreathRate, 115
+C-LEAK, 173
+C3, 1027
+C3-M2, 172
+C3-P3, 1
+C3:C4, 1
+C3M2, 74
+C4, 1027
+C4-M1, 172
+C4-P4, 1
+C4M1, 74
+CFLO, 74
+CFLOW, 172
+CHEST, 148
+CHIN, 74
+CHIN1, 21
+CHIN2, 21
+CHIN3, 21
+CNEP pressure, 58
+CO2, 62
+CO2 EndTidal, 261
+CO2 EndTidal2, 1
+CPAP Flow, 241
+CPAP Leak, 317
+CPAP Pressure, 241
+CPAP leak, 10
+CPAP raw flow, 10
+Cannula, 20
+Chest, 869
+ChestDC, 37
+Chin, 700
+Chin 1, 141
+Chin 2, 141
+Chin 3, 135
+Chin2, 464
+Cz, 169
+DC Nasal Canual, 1
+DC05, 4
+DC06, 4
+DC07, 4
+DC08, 74
+DC1, 141
+DC2, 141
+DC3, 141
+DC6, 141
+DIA, 441
+E1, 863
+E1 (LEOG), 31
+E1M2, 74
+E2, 863
+E2 (REOG), 31
+E2M2, 74
+ECG, 435
+ECG 1, 135
+ECG 2, 200
+ECG I, 549
+ECG I2, 54
+ECG II, 809
+ECG II2, 186
+ECG IIHF, 781
+ECG1, 196
+ECG2, 190
+EDF Annotations, 11
+EEG, 22
+EEG A1-A2, 781
+EEG A1-A22, 186
+EEG C3-A1, 2
+EEG C3-A2, 777
+EEG C3-A22, 186
+EEG C4-A1, 777
+EEG C4-A12, 186
+EEG C4-A2, 2
+EEG F3-A1, 2
+EEG F3-A2, 779
+EEG F3-A22, 186
+EEG F4-A1, 777
+EEG F4-A12, 186
+EEG F4-A2, 2
+EEG F7-A2, 10
+EEG F8-A1, 10
+EEG Fp1-A2, 203
+EEG Fp1-A22, 186
+EEG Fp2-A1, 203
+EEG Fp2-A12, 186
+EEG O1-A1, 2
+EEG O1-A2, 777
+EEG O1-A22, 186
+EEG O2-A1, 779
+EEG O2-A12, 186
+EEG O2-A2, 2
+EEG P3-A2, 187
+EEG P4-A1, 187
+EEG T3-A2, 187
+EEG T4-A1, 187
+EEG T5-A2, 13
+EEG T6-A1, 13
+EKG, 95
+EKG #1, 20
+EKG #2, 20
+EKG1, 148
+EKG2, 148
+EMG, 22
+EMG #1, 20
+EMG #2, 20
+EMG #3, 20
+EMG Aux1, 352
+EMG Aux12, 54
+EMG Aux2, 216
+EMG Chin, 779
+EMG Chin2, 186
+EMG1, 317
+EMG2, 317
+EMG3, 317
+EOG LOC-A2, 779
+EOG LOC-A22, 186
+EOG ROC-A1, 1
+EOG ROC-A12, 1
+EOG ROC-A2, 778
+EOG ROC-A22, 185
+EOG1, 27
+EOG2, 27
+EPAP, 74
+ETC2, 70
+ETCO2, 72
+ETCO2 Digital, 159
+ETCO2 TREND, 72
+ETCO2 Trend, 75
+ETCO2 Wave, 159
+Effort ABD, 689
+Effort THO, 689
+EtCO2, 216
+ExOb, 441
+F1M2, 70
+F2M1, 70
+F3, 892
+F3-C3, 1
+F3-M2, 172
+F3:M2, 1
+F3M2, 74
+F4, 892
+F4-C4, 1
+F4-M1, 172
+F4:F3, 1
+F4M1, 74
+F7, 44
+F7-T3, 1
+F8, 44
+F8-T4, 1
+FLOW, 70
+FP1, 9
+FP1-F3, 1
+FP1-F7, 1
+FP2, 9
+FP2-F4, 1
+FP2-F8, 1
+Flow, 20
+Flow Aux4, 52
+Flow Patient, 689
+Flow Patient2, 687
+Flow Patient3, 687
+Foot-L, 34
+Foot-R, 34
+Fp1, 540
+Fp2, 675
+Fp2:Fp1, 1
+Fpz, 165
+Fz, 169
+Graphical Aux2, 8
+HR, 21
+Heartrate, 172
+IC1-IC2, 172
+IPAP, 74
+Impedan, 519
+L Arm, 6
+L Arm 1, 135
+L Arm 2, 135
+L Leg, 6
+L Leg 1, 135
+L Leg 2, 135
+L-Arm1, 57
+L-Arm2, 57
+L-EOG, 116
+L-LEG 1, 31
+L-LEG 2, 31
+L-LEG1, 96
+L-LEG2, 96
+L-Leg1, 189
+L-Leg2, 209
+LA1-LA2, 167
+LAT, 435
+LAT1-LAT2, 172
+LEAK, 74
+LLEG, 91
+LLeg3, 6
+LLeg4, 6
+LOC, 162
+Leak, 5
+Leak Total, 687
+Left Masseter 1, 137
+Left Masseter 2, 137
+Leg 1, 687
+Leg 12, 186
+Leg 2, 687
+Leg 22, 186
+LegsL-Leg1, 20
+Light, 38
+M1, 999
+M2, 999
+MV, 5
+Marker, 28
+Mass-L, 3
+Mass-R, 3
+Massater 1, 95
+Massater 2, 95
+Masseter 1, 20
+Masseter 2, 20
+Min Vent, 138
+Move., 38
+Mvmt, 429
+N Pres, 141
+N.Press, 25
+NASAL PRESSURE, 127
+NCPT, 21
+NasOr, 461
+NasOr2, 398
+Nasal, 462
+Nasal Pressure, 189
+Nasal Therm, 172
+NasalDC, 37
+NasalOr, 27
+NasalSn, 423
+Nonin sat, 4
+O1, 892
+O1-M2, 172
+O1M2, 74
+O2, 1027
+O2-M1, 172
+O2M1, 74
+Oral-CO2, 528
+Other, 49
+Oxy Flow, 141
+Oz, 169
+P-Snore, 172
+P3, 40
+P3-O1, 1
+P4, 114
+P4-O2, 1
+PAP Flow, 141
+PAP Leak, 528
+PAP Pres, 669
+PAP Pt Flo, 528
+PAP TV, 528
+PLM3., 2
+PLM4., 1
+PLMl, 27
+PLMl., 21
+PLMr, 27
+PLMr., 21
+POS, 21
+PPG, 435
+PR, 6
+PTAF, 358
+PULSE, 127
+Patient Event, 16
+Pes-L1, 54
+Pes-L2, 54
+Pes-L3, 54
+Pes-L4, 54
+Photic Event, 16
+Plesmo, 173
+Pleth, 1107
+Plth, 70
+Pos, 4
+Pos., 93
+Press, 5
+Press Patient, 117
+PressCheck, 687
+Pressure, 227
+Pressure Flow, 1
+Pressure Snore, 1
+Pulse, 738
+Pulse Amp, 42
+Pulse Rate, 135
+PulseRate, 687
+Pz, 243
+R Arm, 6
+R Arm 1, 135
+R Arm 2, 135
+R Leg, 6
+R Leg 1, 135
+R Leg 2, 135
+R-Arm1, 57
+R-Arm2, 57
+R-EOG, 116
+R-LEG 1, 31
+R-LEG 2, 31
+R-LEG1, 96
+R-LEG2, 96
+R-Leg1, 209
+R-Leg2, 209
+RAT, 435
+RAT1-RAT2, 172
+RIC, 488
+RLEG, 91
+RLeg5, 6
+RLeg6, 6
+ROC, 162
+RR, 781
+ResM Flow, 141
+ResM Press, 141
+ResMed Flow, 20
+ResMed Pressure, 20
+Resp Rate, 1
+Rib Cage, 141
+Right Arm 2, 75
+Right Masseter 1, 79
+Right Masseter 2, 137
+Right arm, 75
+Right-Masseter1, 58
+SAO2, 173
+SCM, 2
+SNOR, 70
+SNORE, 147
+SPO2, 500
+SUB-R - V5, 172
+SUBL-SUBR, 5
+SUBR-SUBL, 167
+SUM, 173
+Sa02, 20
+SaO2, 338
+Scalene, 2
+Snore, 1699
+Snore2, 421
+SpO2, 932
+SpO2Sta, 28
+Sum, 9
+T-Volume, 1
+T3, 48
+T3-T5, 1
+T3M2, 65
+T4, 48
+T4-T6, 1
+T4M1, 65
+T5, 40
+T5-O1, 1
+T6, 40
+T6-O2, 1
+TCCO2 Digital, 159
+THOR, 70
+TV, 5
+TcCO2, 669
+TcPPG, 490
+TcSpO2, 528
+Tcm4CO2, 5
+TcpCO2, 1
+Technical, 781
+Therm, 141
+TidVol Instant, 55
+TidVol Target, 13
+Tidal Vol, 173
+WAVE, 70
+WPLM_ST, 39
+Winx-Oral, 28
+Winx-Pump, 28
+cNEP pressure, 49
+unused, 33
+wPLMl, 4
+wPLMl Sta, 4
+wPLMr, 4
+wPLMr Sta, 4
+x, 3
+xPAP CPAP, 687
+xPAP EPAP, 687
+xPAP EPAPMax, 115
+xPAP EPAPMin, 115
+xPAP IPAP, 687
+xPAP IPAPMax, 114
+xPAP IPAPMin, 114
+xPAP MaxPress, 115
+xPAP PSMax, 115
+xPAP PSMin, 115
