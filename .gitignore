@@ -6,3 +6,4 @@ edf_transcode/export_summary.txt
 *.xml
 *.pyc
 *.m~
+*.txt~
