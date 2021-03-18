@@ -1495,7 +1495,7 @@ classdef CLASS_converter < handle
                 evtDestinationPath = CLASS_converter.getPathname(stagesEventsPath, msg);
             end
             
-            if(exist(stagesEventsPath,'file') && isormkdir(evtDestinationPath)
+            if exist(stagesEventsPath,'file') && isormkdir(evtDestinationPath)
                 CLASS_converter.stagesEventsExport(stagesEventsPath,evtDestinationPath, 'evt'); %exports .evt files
             else
                 fprintf('One or both of the paths were not found');
