@@ -1,4 +1,5 @@
 psgPath = '/var/psg/'
+psgPath = '/Volumes/Accel/IHC/2021/All'
 [channelNames, channelNamesAll, psgNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
 [channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
 
@@ -106,16 +107,21 @@ E1M2, 74
 E2, 863
 E2 (REOG), 31
 E2M2, 74
-ECG, 435
-ECG 1, 135
-ECG 2, 200
-ECG I, 549
-ECG I2, 54
-ECG II, 809
-ECG II2, 186
-ECG IIHF, 781
-ECG1, 196
-ECG2, 190
+ECG, 435   <-- Grp 1
+ECG 1, 135 <-- Grp 
+ECG 2, 200 <-- Grp 
+ECG I, 549 <-- Grp 
+ECG I2, 54 <-- Grp 
+ECG II, 809 <-- Grp X
+ECG II2, 186 <-- Grp 
+ECG IIHF, 781 <-- Grp X 
+ECG1, 196 <-- Grp 2
+ECG2, 190 <-- Grp 2
+EKG, 95 <-- Grp 5
+EKG #1, 20 <-- Grp 3
+EKG #2, 20 <-- Grp 3
+EKG1, 148  <-- Grp 4 
+EKG2, 148 <-- Grp 4
 EDF Annotations, 11
 EEG, 22
 EEG A1-A2, 781
@@ -150,11 +156,6 @@ EEG T3-A2, 187
 EEG T4-A1, 187
 EEG T5-A2, 13
 EEG T6-A1, 13
-EKG, 95
-EKG #1, 20
-EKG #2, 20
-EKG1, 148
-EKG2, 148
 EMG, 22
 EMG #1, 20
 EMG #2, 20
@@ -230,35 +231,35 @@ Impedan, 519
 L Arm, 6
 L Arm 1, 135
 L Arm 2, 135
-L Leg, 6
-L Leg 1, 135
-L Leg 2, 135
+L Leg, 6 ??
+L Leg 1, 135 <-- LAT Grp 1
+L Leg 2, 135  <-- LAT Grp 1
 L-Arm1, 57
 L-Arm2, 57
 L-EOG, 116
-L-LEG 1, 31
-L-LEG 2, 31
-L-LEG1, 96
-L-LEG2, 96
-L-Leg1, 189
-L-Leg2, 209
-LA1-LA2, 167
-LAT, 435
-LAT1-LAT2, 172
+L-LEG 1, 31  <-- LAT Grp 2
+L-LEG 2, 31  <-- LAT Grp 2
+L-LEG1, 96 <-- LAT Grp 3
+L-LEG2, 96 <-- LAT Grp 3
+L-Leg1, 189 <-- LAT Grp 4
+L-Leg2, 209 <-- LAT Grp 4
+LA1-LA2, 167 <-- ?? LAT Grp 5 <-- most likely LAT as it is necessary to get to 2050 number
+LAT, 435 <-- LAT Grp 6
+LAT1-LAT2, 17 <-- LAT Grp 7
 LEAK, 74
-LLEG, 91
-LLeg3, 6
-LLeg4, 6
+LLEG, 91 <-- Lat Grp 8
+LLeg3, 6 ??
+LLeg4, 6 ??
 LOC, 162
 Leak, 5
 Leak Total, 687
 Left Masseter 1, 137
 Left Masseter 2, 137
-Leg 1, 687
-Leg 12, 186
-Leg 2, 687
-Leg 22, 186
-LegsL-Leg1, 20
+Leg 1, 687 <-- geisinger studies Right Leg 
+Leg 2, 687 <-- Geisinger studies Left Leg Grp 8
+Leg 12, 186  <-- RAT ?
+Leg 22, 186  <-- LAT ?
+LegsL-Leg1, 20  <-- LAT/RAT ? See Grp4
 Light, 38
 M1, 999
 M2, 999
@@ -342,24 +343,24 @@ Pz, 243
 R Arm, 6
 R Arm 1, 135
 R Arm 2, 135
-R Leg, 6
-R Leg 1, 135
-R Leg 2, 135
+R Leg, 6        <--- ? RAT
+R Leg 1, 135  <--  Grp 1
+R Leg 2, 135  <--  Grp 1
 R-Arm1, 57
 R-Arm2, 57
 R-EOG, 116
-R-LEG 1, 31
-R-LEG 2, 31
-R-LEG1, 96
-R-LEG2, 96
-R-Leg1, 209
-R-Leg2, 209
-RAT, 435
-RAT1-RAT2, 172
+R-LEG 1, 31   <--- Grp 2
+R-LEG 2, 31   <--- Grp 2
+R-LEG1, 96   <---  Grp 3
+R-LEG2, 96   <---  Grp 3
+R-Leg1, 209  <--   Grp 4
+R-Leg2, 209  <--   Grp 4
+RAT, 435  <--- okay   Grp 5
+RAT1-RAT2, 172   <--- okay  Grp 6
 RIC, 488
-RLEG, 91
-RLeg5, 6
-RLeg6, 6
+RLEG, 91   <-- ? RAT  <-- Grp 7
+RLeg5, 6  <-- ?
+RLeg6, 6  <-- ?
 ROC, 162
 RR, 781
 ResM Flow, 141
