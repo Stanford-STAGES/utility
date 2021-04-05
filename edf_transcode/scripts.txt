@@ -1,7 +1,29 @@
+STNF conversion
+psgPath ='/var/psg/STNF';
+destPath = '/var/psg/STNF/plm_edf';
+normalize_stages_edfs(psgPath, destPath);
+
+
 psgPath = '/var/psg/'
 psgPath = '/Volumes/Accel/IHC/2021/All'
 [channelNames, channelNamesAll, psgNamesAll] = CLASS_converter.getAllChannelNames(psgPath);
 [channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+
+psgPath = '/var/psg/STNF'
+[channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+
+psgPath = '/var/psg/STLK'
+[channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+
+psgPath = '/var/psg/MSMI'
+psgPath = '/var/psg/MSQW'
+psgPath = '/var/psg/MSTR'
+psgPath = '/var/psg/MAYO'
+psgPath = '/var/psg/MSNF'
+psgPath = '/var/psg/GS'
+psgPath = '/var/psg/BOGN'
+[channelNames, channelNamesAll, psgNamesAll, channelNameOccurrences] = CLASS_converter.getAllChannelNames(psgPath);
+
 
 % CLASS_converter
 % edfAnnotations2StagesCsv -> CLASS_converter.edfAnnotations2EventsFile

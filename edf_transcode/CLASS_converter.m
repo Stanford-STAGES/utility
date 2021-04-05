@@ -253,8 +253,7 @@ classdef CLASS_converter < handle
             else
                 % Everything we are doing now is going to be the same file,
                 % at the destination.  
-                fullSrcFile = fullDestFile;
-                
+                fullSrcFile = fullDestFile;                
                 
                 % Now that it is copied over, go ahead and make changes
                 % directly to the file as necessary.
@@ -289,8 +288,7 @@ classdef CLASS_converter < handle
                     if(~isempty(mergeHDRentries))
                         success = obj.rewriteEDF(fullSrcFile,fullDestFile,mergeIndices,mergeHDRentries);
                     end
-                end
-            
+                end            
                 
                 % destPath .EDF file headers are relabeled in place
                 if(success)

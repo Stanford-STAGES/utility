@@ -243,10 +243,6 @@ classdef EDFWriter
         
         function success = writeLiteEDF(fullSrcFilename, fullDestFilename, channelIndicesOrCell, resampleRate)
             try                
-                addNoise = false; % uh oh!
-                if(addNoise)
-                    rng('shuffle');
-                end
                 HDR = loadEDF(fullSrcFilename);                
                 if(iscell(channelIndicesOrCell))
                     [~,channelIndices] = intersect(HDR.label,channelIndicesOrCell);
@@ -288,10 +284,6 @@ classdef EDFWriter
                         end
                         liteHDR.number_samples_in_each_data_record(c) = resampleRate;  % data records are 1 second.  
                     end
-                    
-                    %if(addNoise)
-                    %    channelData{c} = channelData{c}+randn(size(channelData{c}));
-                    %end
                     
                     channelData{c} = EDFWriter.double2EDFReadyData(channelData{c},liteHDR,c); % we want the lite header because it goes from 1:numel(channelData) and will match up correctly with c
                     
