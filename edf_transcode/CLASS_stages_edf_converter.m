@@ -22,12 +22,10 @@ classdef CLASS_stages_edf_converter < CLASS_edf_converter
                 {'LAT','RAT','LAT-RAT'};
                 {'ECG','ECG 2','EKG'}   ;
                 {'ECG','ECG II','EKG'}   ;
-                };
-            
+                };           
             singlechannel = {
                 {'wPLMl','PLMl','PLMl.','LAT'};
-                {'wPLMr','PLMr','PLMr.','RAT'};
-                {'EKG1-EKG2','LLEG1-EKG2','ECG','EKG'};
+                {'wPLMr','PLMr','PLMr.','RAT'};                
                 };
         end
     end

@@ -14,5 +14,10 @@ if ~isormkdir(dest_path)
     throw(MException('EDF:TRANSCODE:ARGS','%s requires a valid destination path for writing to.  %s is not valid.', mfilename, dest_path))
 end
 
-edfconv = CLASS_stages_edf_converter(src_path, dest_path);
+% For lite export of selected channels.
+edfconv = CLASS_stages_edf_converter();
+
+
+
+% edfconv = CLASS_stages_edf_converter(src_path, dest_path);
 % Read the number of edf files in the src_path    
