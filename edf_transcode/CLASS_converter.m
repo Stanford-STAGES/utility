@@ -933,100 +933,42 @@ classdef CLASS_converter < handle
             end
         end
         
-        function stagesEventsExport(stagesPath, outputPath, outputType)
+        function stagesEventsExport(inputPath, exportPath, outputType)
             if(nargin<3)
                 outputType = 'all';
             end
-            pathnames = getPathnames(emblaStudyPath);
-            studyStruct = CLASS_converter.getSEVStruct();
-            studyStruct.samplerate = 256;
             
-            studyTypeExportFilename = fullfile(outPath,'studyType.log');
+            [names, eventsFullnames] = getFilenamesi(inputPath, 'csv');
+            
+            studyTypeExportFilename = fullfile(exportPath,'studyType.log');
             fid = fopen(studyTypeExportFilename,'w');
-            fprintf(fid,'# ID, type\n'); % header line
-            for s=1:numel(pathnames)
+            fprintf(fid,'#, ID, result\n'); % header line
+            for s=1:numel(names)
+                eventFilename = eventsFullnames{s};
+                [~, studyName, ~] = fileparts(names{s});
+                
+                fprintf(fid, '%d, %s, ', s, studyName);
                 try
-                    studyName = pathnames{s};
+
                     srcFile = [studyName,'.edf'];
-                    edfSrcPath = fullfile(emblaStudyPath,pathnames{s});
-                    fullSrcFile = fullfile(edfSrcPath,srcFile);
+                    fullSrcFile = fullfile(inputPath,srcFile);
                     
-                    HDR = loadEDF(fullSrcFile);
-                    studyStruct.startDateTime = HDR.T0;
+                    HDR = loadEDF(fullSrcFile);                    
+                    [~, stagesVec] = CLASS_codec.parseSTAGEScsvFile(eventFilename, HDR);
                     
-                    num_epochs = ceil(HDR.duration_sec/studyStruct.standard_epoch_sec);
-                    
-                    stage_evt_file = fullfile(edfSrcPath,'stage.evt');
-                    if(exist(stage_evt_file,'file'))
-                        [eventStruct,src_samplerate] = CLASS_codec.parseSTAGESEvent(stage_evt_file,studyStruct.samplerate,studyStruct.samplerate);
-                        studyStruct.samplerate = src_samplerate;
-                        
-                        if(num_epochs~=numel(eventStruct.epoch))
-                            % fprintf(1,'different stage epochs found in %s\n',studyname);
-                            if(any(strcmpi(outputType,{'STA','All'})))
-                                fprintf(1,'%s\texpected epochs: %u\tencountered epochs: %u to %u\n',srcFile,num_epochs,min(eventStruct.epoch),max(eventStruct.epoch));
-                            end
-                            
-                            new_stage = repmat(7,num_epochs,1);
-                            new_epoch = (1:num_epochs)';
-                            new_stage(eventStruct.epoch)=eventStruct.stage;
-                            eventStruct.epoch = new_epoch;
-                            eventStruct.stage = new_stage;
-                        end
-                        
-                        if(strcmpi(outputType,'STA') || strcmpi(outputType,'all'))
-                            y = [eventStruct.epoch,eventStruct.stage];
-                            staFilename = fullfile(outPath,strcat(studyName,'.STA'));
-                            save(staFilename,'y','-ascii');
-                        end
-                        
-                        if(~strcmpi(outputType,'STA'))
-                            % export the .EDF
-                            if(strcmpi(outputType,'EDF'))
-                                fprintf('EDF conversion is not implemented as a static method');
-                            else
-                                event_container = CLASS_events_container.importEmblaEvtDir(edfSrcPath,src_samplerate);
-                                studyStruct.line = eventStruct.stage;
-                                studyStruct.cycles = scoreSleepCycles_ver_REMweight(studyStruct.line);
-                                event_container.setStageStruct(studyStruct);
-                                if(strcmpi(outputType,'sco') || strcmpi(outputType,'all'))
-                                    scoFilename = fullfile(outPath,strcat(studyName,'.SCO'));
-                                    event_container.save2sco(scoFilename);
-                                end
-                                
-                                if(strcmpi(outputType,'evt') || strcmpi(outputType,'all'))
-                                    % avoid the problem of file
-                                    % names like  'evt.studyName..txt'
-                                    if(studyName(end)=='.')
-                                        studyName = studyName(1:end-1);
-                                    end
-                                    event_container.save2txt(fullfile(outPath,strcat('evt.',studyName)));
-                                end
-                                
-                                if(strcmpi(outputType,'evts') || strcmpi(outputType,'all'))
-                                    % avoid the problem of file
-                                    % names like 'studyName..EVTS'
-                                    if(studyName(end)=='.')
-                                        studyName = studyName(1:end-1);
-                                    end
-                                    event_container.save2evts(fullfile(outPath,strcat(studyName,'.EVTS')));
-                                    % Output study type info as available
-                                    evtObj = event_container.getEventObjFromLabel('numeric');
-                                    if(~isempty(evtObj))
-                                        fprintf(fid,'%s,%s\n',studyName,strtok(evtObj.description{1}));  %e.g., strtok('CPAP (6.000)') -> 'CPAP'
-                                    end
-                                    
-                                    
-                                end
-                            end
-                        end
+                    if(strcmpi(outputType,'STA') || strcmpi(outputType,'all'))
+                        staFilename = fullfile(exportPath, [studyName, '.STA']);
+                        CLASS_codec.saveHypnogram2STA(stagesVec, staFilename);
+                        fprintf('Succcess.  Saved to %s\n', staFilename);
                     else
-                        fprintf(1,'%s\tNo stage File found\n',srcFile);
+                        fprintf('This output type is not handled: %s\n', outputType);
+                        fprintf('Unhandled output type (%s)\n', outputType);
                     end
                     
                 catch me
                     showME(me);
                     fprintf(1,'%s (%u) - Fail\n',srcFile,s);
+                    fprintf(fid, 'Fail\n');
                 end
             end
             fclose(fid);
@@ -1412,7 +1354,7 @@ classdef CLASS_converter < handle
                 outPath =CLASS_converter.getPathname(twinStudyPath,msg);
             end
             
-            if(exist(twinStudyPath,'file') && exist(outPath,'file'))
+            if(exist(twinStudyPath, 'file') && exist(outPath, 'file'))
                 CLASS_converter.twinEvtExport(twinStudyPath,outPath,'evt');
             else
                 fprintf('One or both of the paths were not found');
@@ -1493,12 +1435,33 @@ classdef CLASS_converter < handle
                 evtDestinationPath = CLASS_converter.getPathname(stagesEventsPath, msg);
             end
             
-            if exist(stagesEventsPath,'file') && isormkdir(evtDestinationPath)
+            if exist(stagesEventsPath, 'file') && isormkdir(evtDestinationPath)
                 CLASS_converter.stagesEventsExport(stagesEventsPath,evtDestinationPath, 'evt'); %exports .evt files
             else
                 fprintf('One or both of the paths were not found');
             end
         end
+        
+        
+        %> @brief stages here refers to Stanford's STAGES cohort, a multisite 
+        %> collection of PSGs.
+        function stages2sta(stagesEventsPath, evtDestinationPath)
+            if(nargin<2)
+                disp('Select Directory containing STAGES event files.');
+                msg = 'Select Event directory (*.csv) to use or Cancel for none.';
+                stagesEventsPath = CLASS_converter.getPathname(pwd,msg);
+                msg = 'Select Directory to save SEV evt files to';
+                disp(msg);
+                evtDestinationPath = CLASS_converter.getPathname(stagesEventsPath, msg);
+            end
+            
+            if exist(stagesEventsPath, 'file') && isormkdir(evtDestinationPath)
+                CLASS_converter.stagesEventsExport(stagesEventsPath,evtDestinationPath, 'STA'); %exports .STA files
+            else
+                fprintf('One or both of the paths were not found');
+            end
+        end
+        
         
         % =================================================================
         %> @brief This function automates the file conversion process from
@@ -1587,7 +1550,7 @@ classdef CLASS_converter < handle
             end
             
             if(exist(emblaStudyPath,'file') && exist(outPath,'file'))
-                CLASS_converter.staticEmblaEvtExport(emblaStudyPath,outPath,'SCO'); %exports SCO files
+                CLASS_converter.staticEmblaEvtExport(emblaStudyPath,outPath, 'SCO'); %exports SCO files
                 
                 %SSC_APOE_expressions = {'^(?<studyname>\d{4})_(?<studydate>\d{1,2}-\d{1,2}-\d{4})';
                 %    '^nonMatch(?<studyname>\d{1,3})'};
@@ -1659,7 +1622,7 @@ classdef CLASS_converter < handle
                     allDateNum = datenum([c{3},c{1},c{2},c{4},c{5},c{6}]);
                     % allDateNum = datenum(cell2mat(cells2cell(c{1:end-1})));
                     
-                    datenumPerSec = datenum([0, 0 , 0 ,0 ,0 ,1]);
+                    datenumPerSec = datenum([0, 0, 0, 0, 0, 1]);
                     
                     all_elapsed_sec = (allDateNum - startDateNum)/datenumPerSec+1/studyStruct.samplerate; %this is necessary because they began at elapsed seconds of 0
                     seconds_per_epoch = studyStruct.standard_epoch_sec;

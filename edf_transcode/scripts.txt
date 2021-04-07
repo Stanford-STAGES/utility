@@ -1,4 +1,7 @@
-STNF conversion
+# Stages events file (.csv) to Stage vector file (.STA) 
+# See stagesCSV2STA.m
+
+# STNF conversion
 psgPath ='/var/psg/STNF';
 destPath = '/var/psg/STNF/plm_edf';
 normalize_stages_edfs(psgPath, destPath);
