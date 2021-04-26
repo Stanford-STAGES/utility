@@ -2,9 +2,13 @@
 # See stagesCSV2STA.m
 
 # STNF conversion
-psgPath ='/var/psg/STNF';
+psgPath ='/var/psg/STNF/issue_original';
 destPath = '/var/psg/STNF/plm_edf';
 normalize_stages_edfs(psgPath, destPath);
+
+or 
+
+run_plm_transcode()
 
 
 psgPath = '/var/psg/'

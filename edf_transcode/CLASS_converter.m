@@ -960,6 +960,8 @@ classdef CLASS_converter < handle
                         staFilename = fullfile(exportPath, [studyName, '.STA']);
                         CLASS_codec.saveHypnogram2STA(stagesVec, staFilename);
                         fprintf('Succcess.  Saved to %s\n', staFilename);
+                        fprintf(fid, 'Succcess.  Saved to %s\n', staFilename);
+                        
                     else
                         fprintf('This output type is not handled: %s\n', outputType);
                         fprintf('Unhandled output type (%s)\n', outputType);
@@ -1707,7 +1709,7 @@ classdef CLASS_converter < handle
                     end
                     
                     if(~strcmpi(outputType,'STA'))
-                        types = {'LM','AROUSAL','RESPIRATORY EVENT','DEASUTRATION'};
+                        types = {'LM','AROUSAL','RESPIRATORY EVENT','DESATURATION'};
                         src_label = 'WSC Twin File';
                         
                         studyStruct.line = stageMat(:,2);

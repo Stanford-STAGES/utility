@@ -15,9 +15,9 @@ if ~isormkdir(dest_path)
 end
 
 % For lite export of selected channels.
-edfconv = CLASS_stages_edf_converter();
+% edfconv = CLASS_stages_edf_converter();
 
 
 
-% edfconv = CLASS_stages_edf_converter(src_path, dest_path);
+edfconv = CLASS_stages_edf_converter(src_path, dest_path);
 % Read the number of edf files in the src_path    

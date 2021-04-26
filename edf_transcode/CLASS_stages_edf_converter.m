@@ -20,10 +20,11 @@ classdef CLASS_stages_edf_converter < CLASS_edf_converter
             unhandled = {};
             dualchannel = {
                 {'LAT','RAT','LAT-RAT'};
-                {'ECG','ECG 2','EKG'}   ;
-                {'ECG','ECG II','EKG'}   ;
+                %{'ECG','ECG 2','EKG'}   ;
+                %{'ECG','ECG II','EKG'}   ;
                 };           
             singlechannel = {
+                {'ECG 2', 'ECG II', 'ECG'};
                 {'wPLMl','PLMl','PLMl.','LAT'};
                 {'wPLMr','PLMr','PLMr.','RAT'};                
                 };

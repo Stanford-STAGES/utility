@@ -9,7 +9,7 @@ This folder contains MATLAB code that is helpful for curating and normalizing ED
 
 ## examples
 
-To simplify a set of .edf files in place (i.e. rewrite them):
+To simplify a set of .edf files in a directory (i.e. rewrites them in place):
 
 ```matlab
 psgPath ='/var/psg/STNF';
