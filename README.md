@@ -7,13 +7,13 @@ This folder contains a Python script to verify if EDF files will work with pyedf
 
 From a command prompt
 
-* To specify which path to check (e.g. '/path/to/check/'), and only run once:
-
-  `python3.6 -m edf_verify ~/path/to/check`
-
-* Simple prompt for which path to check.  (Enter 'x' to quit.)
+* To run interactively with a prompt for the path to check (Enter 'x' to quit):
 
   `python3.6 -m edf_verify`
+
+* To run once, specify which path to check (e.g. '/path/to/check/'):
+
+  `python3.6 -m edf_verify ~/path/to/check`
 
 # edf_deidentify/
 
