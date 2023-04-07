@@ -30,6 +30,14 @@ This folder contains MATLAB code that is helpful for curating and normalizing ED
 3. Referencing channels (e.g. combinging 'C3' and 'M2' to get 'C3-M2').
 4. Culling unwanted channels to produce smaller files.
 
+# sherlock/
+
+This folder contains helper methods for Sherlock.
+
+ **edf_headers/** <br>
+ This repository is implemented for retreiving header information, duration, and location of the .edf 	
+	files we have on Oak to CSV.
+
 ## examples
 
 To simplify a set of .edf files in place (i.e. rewrite them):
