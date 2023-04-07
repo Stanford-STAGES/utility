@@ -1,0 +1,42 @@
+{
+    "COHORTS_PATH" : "$OAK/psg",
+    "COHORTS" : [
+        "AHC_Austria",
+        "CNC_China",
+        "DHC_Glostrup",
+        "FHC_France",
+        "IHC_Italy",
+        "KHC_Korea",
+        "SSC_Stanford",
+        "WSC_Wisconsin"
+    ],
+    "EDF_PATH" : "<COHORT_PATH>/<COHORT>/all",
+        
+    "HEADER_CSV_COLUMNS": [
+        "file_stem",
+        "extension",
+        "cohort",
+        "start_date",
+        "start_time",
+        "duration_hours",
+        "edf_compliant",
+        "edf_plus",
+        "file_size_mb"
+    ],
+        
+    "FAILED_CSV_COLUMNS": [
+        "file_stem",
+        "extension",
+        "cohort",
+        "error"
+    ],
+        
+    "OUTPATH": "./",
+    "HEADER_CSV_FNAME": "oak_psg_dictionary.csv",
+    "FAILED_CSV_FNAME": "oak_psg_failed.csv",
+    "INDEX_COL": "file_stem",
+    
+    "ARCHIVE_PATH": "./archives",
+    "VERSION": "0.0"
+}
+
