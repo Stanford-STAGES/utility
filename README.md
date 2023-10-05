@@ -1,6 +1,15 @@
 Utility programs, scripts, and resources for use by Stanford Center for Sleep Sciences and Behavioral Research and its collaborators.
 
- 
+# channel_label_identifier.py
+
+Use the `channel_label_identifier.py` tool by running
+```
+python channel_label_identifier.py <path to folder containing EDFs and hypnograms> montage.json C3 C4 A1 A2 EOGL EOGR LChin RChin EMG
+```
+
+This will create a JSON file (`montage.json`) containing key-value pairs to map the desired electrode labels shown above with the electrode configurations available in the data.  This is also a useful way to assess the exact distribution of channel labels found in the .edf files located in a specific folder.  
+
+
 # edf_verify/
 
 This folder contains a Python script to verify if EDF files will work with pyedflib.EdfReader.
