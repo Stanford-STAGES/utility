@@ -7,3 +7,4 @@ edf_transcode/export_summary.txt
 *.pyc
 *.m~
 *.txt~
+.DS_Store
